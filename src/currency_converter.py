@@ -13,10 +13,13 @@ def get_exchange_rate(base_currency,target_currency):
     return  response.json()["conversion_rates"][target_currency]  
 
 if __name__ == "__main__":
-    base_currency=input("Please Enter Base Currency:")    
-    target_currency=input("Please Enter target Currency:") 
-    amount=float(input("Please Enter Amount:"))
-    exchange_rate=get_exchange_rate(base_currency,target_currency)
-    converted_amount=amount*exchange_rate
-    print(f"{amount} {base_currency} is {converted_amount} {target_currency}")  
+    try:    
+        base_currency=input("Please Enter Base Currency:").upper()  
+        target_currency=input("Please Enter target Currency:").upper() 
+        amount=float(input("Please Enter Amount:"))
+        exchange_rate=get_exchange_rate(base_currency,target_currency)
+        converted_amount=amount*exchange_rate
+        print(f"{amount} {base_currency} is {converted_amount} {target_currency}")  
+    except :
+        print("There was a problem!")    
 
